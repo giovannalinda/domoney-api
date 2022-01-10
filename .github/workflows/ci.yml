@@ -163,13 +163,4 @@ jobs:
       - name: test
         run: yarn test:ci --max-workers ${{ steps.cpu-cores.outputs.count }}
         env:
-          JEST_TOTAL_PARTITIONS: ${{ matrix.jest-total-partitions }}
-          JEST_PARTITION: ${{ matrix.jest-partition }}
-          SKIP_PREFLIGHT_CHECK: true
-          REACT_APP_FINBITS_API_URL: http://localhost
-          REACT_APP_WEB_SOCKET_URL: ws://localhost:4000/socket
-          REACT_APP_WHATSAPP_NUMBER: 1140407770
-          REACT_APP_ENVIRONMENT: test
-          REACT_APP_SEGMENT_WRITE_KEY: "fake-key"
-          REACT_APP_ANALYTICS_ENABLE: false
-          TZ: UTC
+          PORT: 3000
