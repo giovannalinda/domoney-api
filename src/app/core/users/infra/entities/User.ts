@@ -6,6 +6,8 @@ import {
   Column,
 } from 'typeorm'
 
+import { Exclude } from 'class-transformer'
+
 @Entity('users')
 export class User {
   @PrimaryColumn('uuid')
@@ -14,6 +16,7 @@ export class User {
   @Column()
   email: string
 
+  @Exclude()
   @Column()
   password: string
 

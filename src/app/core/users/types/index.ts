@@ -6,6 +6,7 @@ type UsersHandler = {
   create(data: CreateUser): Promise<User>
   deleteById(id: string): Promise<void>
   findById(id: string): Promise<User | undefined>
+  findByEmail(email: string): Promise<User | undefined>
   save(user: User): Promise<User>
 }
 

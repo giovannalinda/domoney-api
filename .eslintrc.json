@@ -24,7 +24,12 @@
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/no-explicit-any": 2,
-    "@typescript-eslint/no-unused-vars": 2,
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
     "no-use-before-define": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "space-before-function-paren": "off",
@@ -33,6 +38,7 @@
     "camelcase": "off",
     "multiline-ternary": "off",
     "brace-style": "off",
+    "no-useless-constructor": "off",
     "comma-dangle": [
       "error",
       {

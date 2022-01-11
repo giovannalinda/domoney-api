@@ -22,6 +22,14 @@ class UsersRepository implements UsersHandler {
     return this.ormRepository.findOne(id)
   }
 
+  async findByEmail(email: string): Promise<User | undefined> {
+    return this.ormRepository.findOne({
+      where: {
+        email,
+      },
+    })
+  }
+
   async deleteById(id: string): Promise<void> {
     await this.ormRepository.delete(id)
   }

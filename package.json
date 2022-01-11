@@ -17,10 +17,12 @@
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "class-transformer": "0.5.1",
     "cors": "2.8.5",
     "express": "4.17.2",
     "pg": "8.7.1",
     "ts-node-dev": "1.1.8",
+    "tsyringe": "4.6.0",
     "typeorm": "0.2.41"
   },
   "devDependencies": {
