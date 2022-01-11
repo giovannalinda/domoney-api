@@ -5,7 +5,7 @@ import { User, Session } from '@/app/core/users/infra/entities'
 type CreateUser = Pick<User, 'email' | 'password'>
 type AuthenticateUser = Pick<User, 'email' | 'password'>
 
-type UsersHandler = {
+type UsersRepositoryProvider = {
   create(data: CreateUser): Promise<User>
   deleteById(id: string): Promise<void>
   findById(id: string): Promise<User | undefined>
@@ -13,7 +13,7 @@ type UsersHandler = {
   save(user: User): Promise<User>
 }
 
-type SessionsHandler = {
+type SessionsRepositoryProvider = {
   create(user_id: string): Promise<Session>
 }
 
@@ -38,6 +38,6 @@ export {
   AuthenticateUser,
   AuthenticateResponse,
   CreateUser,
-  UsersHandler,
-  SessionsHandler,
+  UsersRepositoryProvider,
+  SessionsRepositoryProvider,
 }

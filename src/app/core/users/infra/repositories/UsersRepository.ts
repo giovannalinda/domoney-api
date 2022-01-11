@@ -1,9 +1,9 @@
 import { getRepository, Repository } from 'typeorm'
 
 import { User } from '@/app/core/users/infra/entities/User'
-import { UsersHandler, CreateUser } from '@/app/core/users/types'
+import { UsersRepositoryProvider, CreateUser } from '@/app/core/users/types'
 
-class UsersRepository implements UsersHandler {
+class UsersRepository implements UsersRepositoryProvider {
   private ormRepository: Repository<User>
 
   constructor() {

@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid'
 
 import { User } from '@/app/core/users/infra/entities'
-import { CreateUser, UsersHandler } from '@/app/core/users/types'
+import { CreateUser, UsersRepositoryProvider } from '@/app/core/users/types'
 
-class FakeUsersRepository implements UsersHandler {
+class FakeUsersRepository implements UsersRepositoryProvider {
   private users: User[]
 
   constructor() {

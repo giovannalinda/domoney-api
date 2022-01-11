@@ -3,7 +3,7 @@ import { injectable, inject } from 'tsyringe'
 import { AppError } from '@/lib/errors'
 
 import { User } from '@/app/core/users/infra/entities'
-import { CreateUser, UsersHandler } from '@/app/core/users/types'
+import { CreateUser, UsersRepositoryProvider } from '@/app/core/users/types'
 import { HashProvider } from '@/app/providers/HashProvider/types'
 
 type CreateUserResponse = Pick<User, 'id' | 'email'>
@@ -12,7 +12,7 @@ type CreateUserResponse = Pick<User, 'id' | 'email'>
 class CreateUserService {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: UsersHandler,
+    private usersRepository: UsersRepositoryProvider,
 
     @inject('HashProvider')
     private hashProvider: HashProvider,
