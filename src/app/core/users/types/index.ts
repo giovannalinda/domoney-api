@@ -1,8 +1,9 @@
 import * as yup from 'yup'
 
-import { User } from '@/app/core/users/infra/entities/User'
+import { User, Session } from '@/app/core/users/infra/entities'
 
 type CreateUser = Pick<User, 'email' | 'password'>
+type AuthenticateUser = Pick<User, 'email' | 'password'>
 
 type UsersHandler = {
   create(data: CreateUser): Promise<User>
@@ -12,9 +13,31 @@ type UsersHandler = {
   save(user: User): Promise<User>
 }
 
+type SessionsHandler = {
+  create(user_id: string): Promise<Session>
+}
+
+type AuthenticateResponse = {
+  user: Omit<User, 'password'>
+  token: string
+}
+
 const createUserSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 })
 
-export { createUserSchema, UsersHandler, CreateUser }
+const authenticateUserSchema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+})
+
+export {
+  createUserSchema,
+  authenticateUserSchema,
+  AuthenticateUser,
+  AuthenticateResponse,
+  CreateUser,
+  UsersHandler,
+  SessionsHandler,
+}

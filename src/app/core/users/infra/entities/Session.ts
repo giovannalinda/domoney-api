@@ -3,7 +3,8 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  OneToMany,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm'
 
 import { User } from '.'
@@ -14,7 +15,8 @@ class Session {
   id: string
 
   @Column()
-  @OneToMany(() => User, (user) => user)
+  @ManyToOne(() => User, (user) => user.id)
+  @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user_id: string
 
   @Column()

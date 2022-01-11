@@ -1,9 +1,10 @@
 import { Router } from 'express'
 
-import { usersRouter } from '@/app/core/users/http/router'
+import { usersRouter, sessionsRouter } from '@/app/core/users/http/router'
 
 const router = Router()
 
 router.use(usersRouter)
+router.use(sessionsRouter)
 
 export { router }
