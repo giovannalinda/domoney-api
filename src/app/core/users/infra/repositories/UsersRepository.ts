@@ -10,8 +10,14 @@ class UsersRepository implements UsersRepositoryProvider {
     this.ormRepository = getRepository(User)
   }
 
-  async create(data: CreateUser): Promise<User> {
-    const user = this.ormRepository.create(data)
+  async create({ full_name, email, password }: CreateUser): Promise<User> {
+    const user = this.ormRepository.create({
+      email,
+      password,
+      profile: {
+        full_name,
+      },
+    })
 
     await this.ormRepository.save(user)
 

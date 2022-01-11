@@ -2,7 +2,9 @@ import * as yup from 'yup'
 
 import { User, Session } from '@/app/core/users/infra/entities'
 
-type CreateUser = Pick<User, 'email' | 'password'>
+type CreateUser = {
+  full_name: string
+} & Pick<User, 'email' | 'password'>
 type AuthenticateUser = Pick<User, 'email' | 'password'>
 
 type UsersRepositoryProvider = {
@@ -25,6 +27,7 @@ type AuthenticateResponse = {
 const createUserSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
+  full_name: yup.string().required(),
 })
 
 const authenticateUserSchema = yup.object().shape({
