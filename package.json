@@ -13,12 +13,14 @@
     "test:ci": "jest --passWithNoTests --ci --watchAll=false",
     "prettier:write": "prettier --write 'src/**/**.{js,jsx,ts,tsx,json,css,less,md}'",
     "prettier:check": "prettier -c  'src/**/**.{js,jsx,ts,tsx,json,css,less,md}'",
-    "lint": "eslint 'src/**/**.{js,jsx,ts,tsx}'"
+    "lint": "eslint 'src/**/**.{js,jsx,ts,tsx}'",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.17.2",
     "pg": "8.7.1",
+    "ts-node-dev": "1.1.8",
     "typeorm": "0.2.41"
   },
   "devDependencies": {

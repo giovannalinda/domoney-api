@@ -32,6 +32,7 @@
     "indent": "off",
     "camelcase": "off",
     "multiline-ternary": "off",
+    "brace-style": "off",
     "comma-dangle": [
       "error",
       {
