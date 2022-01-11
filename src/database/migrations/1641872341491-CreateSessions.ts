@@ -19,15 +19,9 @@ export class CreateSessions1641872341491 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: 'token',
-            type: 'varchar',
+            name: 'active',
+            type: 'boolean',
             isNullable: false,
-            isUnique: true,
-          },
-          {
-            name: 'expired_at',
-            type: 'timestamp',
-            isNullable: true,
           },
           {
             name: 'created_at',
