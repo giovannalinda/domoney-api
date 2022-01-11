@@ -1,3 +1,5 @@
+import * as yup from 'yup'
+
 import { User } from '@/app/core/users/infra/entities/User'
 
 type CreateUser = Pick<User, 'email' | 'password'>
@@ -10,4 +12,9 @@ type UsersHandler = {
   save(user: User): Promise<User>
 }
 
-export { UsersHandler, CreateUser }
+const createUserSchema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+})
+
+export { createUserSchema, UsersHandler, CreateUser }

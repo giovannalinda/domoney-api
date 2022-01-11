@@ -1,7 +1,7 @@
 import { getRepository, Repository } from 'typeorm'
 
 import { User } from '@/app/core/users/infra/entities/User'
-import type { UsersHandler, CreateUser } from '@/app/core/users/types'
+import { UsersHandler, CreateUser } from '@/app/core/users/types'
 
 class UsersRepository implements UsersHandler {
   private ormRepository: Repository<User>

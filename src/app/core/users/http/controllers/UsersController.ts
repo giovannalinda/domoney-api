@@ -1,22 +1,30 @@
 import { container } from 'tsyringe'
-import type { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
 import { CreateUserService } from '@/app/core/users/services'
 
 class UsersController {
-  public async create(request: Request, response: Response): Promise<Response> {
+  public async create(
+    request: Request,
+    response: Response,
+    next: NextFunction,
+  ): Promise<Response | void> {
     const { email, password } = request.body
 
     const createUser = container.resolve(CreateUserService)
 
-    const user = await createUser.execute({
-      email,
-      password,
-    })
+    try {
+      const user = await createUser.execute({
+        email,
+        password,
+      })
 
-    return response.json({
-      user,
-    })
+      return response.json({
+        user,
+      })
+    } catch (error) {
+      return next(error)
+    }
   }
 }
 
