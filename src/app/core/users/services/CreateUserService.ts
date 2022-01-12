@@ -30,7 +30,7 @@ class CreateUserService {
     const { id, email } = await this.usersRepository.create({
       email: data.email,
       password: passwordHashed,
-      full_name: data.password,
+      full_name: data.full_name,
     })
 
     const user = { id, email }

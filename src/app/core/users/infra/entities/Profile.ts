@@ -3,12 +3,18 @@ import {
   PrimaryGeneratedColumn,
   Column,
   UpdateDateColumn,
+  OneToOne,
 } from 'typeorm'
+
+import { User } from '.'
 
 @Entity('user_profiles')
 class Profile {
   @PrimaryGeneratedColumn('uuid')
   id: string
+
+  @OneToOne(() => User, (user) => user.profile)
+  user: User
 
   @Column()
   full_name?: string

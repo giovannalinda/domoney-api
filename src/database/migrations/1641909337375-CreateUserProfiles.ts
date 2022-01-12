@@ -13,7 +13,6 @@ export class CreateUserProfiles1641909337375 implements MigrationInterface {
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
-
           {
             name: 'full_name',
             type: 'varchar',

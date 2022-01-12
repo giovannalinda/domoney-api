@@ -26,9 +26,7 @@ export class User {
   @Column()
   profile_id?: string
 
-  @OneToOne(() => Profile, {
-    cascade: ['insert'],
-  })
+  @OneToOne(() => Profile, (profile) => profile.user, { cascade: true })
   @JoinColumn({ name: 'profile_id', referencedColumnName: 'id' })
   profile?: Profile
 

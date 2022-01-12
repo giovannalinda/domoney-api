@@ -12,7 +12,8 @@ export class AddProfileIdIntoUsers1641915204564 implements MigrationInterface {
       new TableColumn({
         name: 'profile_id',
         type: 'uuid',
-        isNullable: true,
+        isNullable: false,
+        isUnique: true,
       }),
     )
 

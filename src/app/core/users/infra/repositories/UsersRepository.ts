@@ -1,6 +1,6 @@
-import { getRepository, Repository } from 'typeorm'
+import { FindOneOptions, getRepository, Repository } from 'typeorm'
 
-import { User } from '@/app/core/users/infra/entities/User'
+import { User } from '@/app/core/users/infra/entities'
 import { UsersRepositoryProvider, CreateUser } from '@/app/core/users/types'
 
 class UsersRepository implements UsersRepositoryProvider {
@@ -24,8 +24,11 @@ class UsersRepository implements UsersRepositoryProvider {
     return user
   }
 
-  async findById(id: string): Promise<User | undefined> {
-    return this.ormRepository.findOne(id)
+  async findById(
+    id: string,
+    options?: FindOneOptions<User>,
+  ): Promise<User | undefined> {
+    return this.ormRepository.findOne(id, options)
   }
 
   async findByEmail(email: string): Promise<User | undefined> {
