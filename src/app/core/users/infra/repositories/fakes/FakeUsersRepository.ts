@@ -10,13 +10,21 @@ class FakeUsersRepository implements UsersRepositoryProvider {
     this.users = []
   }
 
-  public async create({ email, password }: CreateUser): Promise<User> {
+  public async create({
+    email,
+    password,
+    full_name,
+  }: CreateUser): Promise<User> {
     const user = new User()
 
     Object.assign(user, {
       id: uuid(),
       email,
       password,
+      profile: {
+        id: uuid(),
+        full_name,
+      },
       created_at: new Date(),
       updated_at: new Date(),
     })

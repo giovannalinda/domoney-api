@@ -8,7 +8,7 @@ import { FakeAuthProvider } from '@/app/providers/AuthProvider/fakes/FakeAuthPro
 
 import { AuthenticateUserService } from './AuthenticateUserService'
 
-describe('CreateUserService', () => {
+describe('AuthenticateUserService', () => {
   let fakeUsersRepository: FakeUsersRepository
   let fakeSessionsRepository: FakeSessionsRepository
   let fakeHashProvider: FakeHashProvider
