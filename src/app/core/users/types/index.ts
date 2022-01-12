@@ -24,10 +24,6 @@ export type SessionsRepositoryProvider = {
   create(user_id: string): Promise<Session>
 }
 
-export type ProfileRepositoryProvider = {
-  findById: (id: string) => Promise<Profile | undefined>
-}
-
 export type AuthenticateResponse = {
   user: Omit<User, 'password'>
   token: string
