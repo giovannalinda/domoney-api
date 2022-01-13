@@ -1,5 +1,10 @@
 type AuthProvider = {
   generateToken: (payload: string) => string
+  verifyToken: (token: string) => string | TokenPayload
 }
 
-export { AuthProvider }
+type TokenPayload = {
+  sub: string
+}
+
+export { AuthProvider, TokenPayload }
