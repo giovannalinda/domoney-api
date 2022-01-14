@@ -1,9 +1,26 @@
 import { container } from 'tsyringe'
 import { NextFunction, Request, Response } from 'express'
 
-import { CreateBankAccountService } from '@/app/core/bank_accounts/services'
+import {
+  CreateBankAccountService,
+  ListBankAccountsByUser,
+} from '@/app/core/bank_accounts/services'
 
 class BankAccountsController {
+  public async index(request: Request, response: Response, next: NextFunction) {
+    const { user_id } = request
+
+    const listBankAccounts = container.resolve(ListBankAccountsByUser)
+
+    try {
+      const bankAccounts = await listBankAccounts.execute(user_id)
+
+      return response.json(bankAccounts)
+    } catch (error) {
+      return next(error)
+    }
+  }
+
   public async create(
     request: Request,
     response: Response,
@@ -19,7 +36,9 @@ class BankAccountsController {
         ...body,
       })
 
-      return response.json(bankAccount)
+      return response.json({
+        bank_account: bankAccount,
+      })
     } catch (error) {
       return next(error)
     }

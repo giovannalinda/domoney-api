@@ -13,3 +13,12 @@ export type BankAccountsRepositoryProvider = {
     user_id: string,
   ) => Promise<BankAccount | undefined>
 }
+
+export enum BankAccountType {
+  CHECKING_ACCOUNT = 'CHECKING_ACCOUNT',
+  MONEY = 'MONEY',
+  SAVINGS = 'SAVINGS',
+  INVESTMENTS = 'INVESTMENTS',
+  PAYMENT_ACCOUNT = 'PAYMENT_ACCOUNT',
+  OTHERS = 'OTHERS',
+}

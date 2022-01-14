@@ -24,6 +24,11 @@ export class CreateBankAccounts1642184345561 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'bank_flag',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'user_id',
             type: 'uuid',
             isNullable: false,

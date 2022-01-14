@@ -6,6 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm'
 
+import { BankAccountType } from '@/app/core/bank_accounts/types'
+
 @Entity('bank_accounts')
 class BankAccount {
   @PrimaryGeneratedColumn('uuid')
@@ -18,6 +20,9 @@ class BankAccount {
   description?: string
 
   @Column()
+  bank_flag: string
+
+  @Column('uuid')
   user_id: string
 
   @Column()
@@ -26,8 +31,8 @@ class BankAccount {
   @Column()
   include_sum_main_screen: boolean
 
-  @Column()
-  account_type: string
+  @Column('varchar')
+  account_type: BankAccountType
 
   @CreateDateColumn()
   created_at: Date
