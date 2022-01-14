@@ -1,7 +1,8 @@
+import { v4 } from 'uuid'
+
 import { SessionsRepositoryProvider } from '@/app/core/users/types'
 
 import { FakeSessionsRepository } from '.'
-import { v4 } from 'uuid'
 
 describe('SessionsRepository', () => {
   let sessionsRepository: SessionsRepositoryProvider
