@@ -5,7 +5,7 @@ import { UsersRepositoryProvider } from '@/app/core/users/types'
 import { BankAccountsRepositoryProvider } from '@/app/core/bank_accounts/types'
 
 @injectable()
-class ListBankAccountsByUser {
+class ListBankAccountsByUserService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: UsersRepositoryProvider,
@@ -29,4 +29,4 @@ class ListBankAccountsByUser {
   }
 }
 
-export { ListBankAccountsByUser }
+export { ListBankAccountsByUserService }

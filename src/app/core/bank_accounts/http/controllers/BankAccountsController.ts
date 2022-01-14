@@ -3,14 +3,14 @@ import { NextFunction, Request, Response } from 'express'
 
 import {
   CreateBankAccountService,
-  ListBankAccountsByUser,
+  ListBankAccountsByUserService,
 } from '@/app/core/bank_accounts/services'
 
 class BankAccountsController {
   public async index(request: Request, response: Response, next: NextFunction) {
     const { user_id } = request
 
-    const listBankAccounts = container.resolve(ListBankAccountsByUser)
+    const listBankAccounts = container.resolve(ListBankAccountsByUserService)
 
     try {
       const bankAccounts = await listBankAccounts.execute(user_id)
