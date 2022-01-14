@@ -8,4 +8,8 @@ export type CreateBankAccount = Omit<
 export type BankAccountsRepositoryProvider = {
   create: (data: CreateBankAccount) => Promise<BankAccount>
   findAllByUserId: (user_id: string) => Promise<BankAccount[]>
+  findByName: (
+    name: string,
+    user_id: string,
+  ) => Promise<BankAccount | undefined>
 }

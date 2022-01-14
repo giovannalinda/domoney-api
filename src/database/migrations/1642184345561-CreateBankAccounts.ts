@@ -20,9 +20,7 @@ export class CreateBankAccounts1642184345561 implements MigrationInterface {
           },
           {
             name: 'balance',
-            type: 'decimal',
-            precision: 2,
-            scale: 2,
+            type: 'varchar',
             isNullable: false,
           },
           {

@@ -21,7 +21,7 @@ class BankAccount {
   user_id: string
 
   @Column()
-  balance: number
+  balance: string
 
   @Column()
   include_sum_main_screen: boolean

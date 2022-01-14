@@ -28,6 +28,15 @@ class BankAccountsRepository implements BankAccountsRepositoryProvider {
       },
     })
   }
+
+  public async findByName(name: string, user_id: string) {
+    return this.ormRepository.findOne({
+      where: {
+        user_id,
+        name,
+      },
+    })
+  }
 }
 
 export { BankAccountsRepository }

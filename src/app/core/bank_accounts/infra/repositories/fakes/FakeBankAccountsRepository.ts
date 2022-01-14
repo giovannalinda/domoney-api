@@ -26,6 +26,12 @@ class FakeBankAccountsRepository implements BankAccountsRepositoryProvider {
       (bankAccount) => bankAccount.user_id === user_id,
     )
   }
+
+  public async findByName(name: string, user_id: string) {
+    const bankAccountsByUserId = await this.findAllByUserId(user_id)
+
+    return bankAccountsByUserId.find((bankAccount) => bankAccount.name === name)
+  }
 }
 
 export { FakeBankAccountsRepository }
