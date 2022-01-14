@@ -1,0 +1,3 @@
+class BankAccount {}
+
+export { BankAccount }
