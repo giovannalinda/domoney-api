@@ -17,6 +17,7 @@ class FakeSessionsRepository implements SessionsRepositoryProvider {
       id: uuid(),
       user_id,
       created_at: new Date(),
+      active: true,
     })
 
     this.sessions.push(session)
